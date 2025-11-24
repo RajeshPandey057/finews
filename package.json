@@ -3,20 +3,40 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
+	"author": "Raj",
+	"repository": {
+		"type": "git",
+		"url": "RajeshPandey057@github.org/finews.git"
+	},
+	"bugs": {
+		"email": "rajesh-pandey@outlook.in",
+		"url": "https://github.com/RajeshPandey057/finews/issues"
+	},
+	"description": "Finews is an AI-powered platform delivering real-time financial news, insights, and analytics for investors and professionals.",
+	"engines": {
+		"bun": ">=1.0.0",
+		"pnpm": "Please use bun instead of npm.",
+		"npm": "Please use bun instead of npm.",
+		"yarn": "Please use bun instead of yarn."
+	},
+	"license": "UNLICENSED",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"dev": "vite dev --host --port 3000 --open",
+		"build": "vite build --mode ci",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "prettier --check . && eslint .",
+		"lint:fix": "prettier --write . && eslint . --fix"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
+		"@iconify/json": "^2.2.410",
 		"@sveltejs/adapter-netlify": "^5.2.4",
+		"@sveltejs/enhanced-img": "^0.9.0",
 		"@sveltejs/kit": "^2.48.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/forms": "^0.5.10",
@@ -26,7 +46,7 @@
 		"eslint": "^9.39.1",
 		"eslint-plugin-svelte": "^3.13.0",
 		"globals": "^16.5.0",
-		"mdsvex": "^0.12.6",
+ 		"mdsvex": "^0.12.6",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",
 		"svelte": "^5.43.8",
@@ -34,7 +54,9 @@
 		"tailwindcss": "^4.1.17",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.47.0",
+		"unplugin-icons": "^22.5.0",
 		"vite": "^7.2.2",
-		"vite-plugin-devtools-json": "^1.0.0"
+		"vite-plugin-devtools-json": "^1.0.0",
+		"zod": "^3.25.76"
 	}
 }

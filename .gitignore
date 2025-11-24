@@ -1,3 +1,4 @@
+test-results
 node_modules
 
 # Output
@@ -5,8 +6,10 @@ node_modules
 .vercel
 .netlify
 .wrangler
+/dev-dist
 /.svelte-kit
 /build
+/package
 
 # OS
 .DS_Store
@@ -15,9 +18,26 @@ Thumbs.db
 # Env
 .env
 .env.*
+!.env.ci
 !.env.example
 !.env.test
 
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Paraglide
+src/lib/paraglide
+
+/prisma/dev.db
+/docker-data
+settings.json
+auth.json
+.nyc_output
+coverage
+scripts/exportDB.ts
+/coverage*
+
+# ESLint
+.eslintcache
+src/routes/(secured)/chat/instructions.md
