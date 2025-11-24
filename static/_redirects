@@ -1,0 +1,45 @@
+# Netlify/Cloudflare Pages redirect rules
+/brand/cadillac              /brand/cadillac-repair-service-center              301
+/brand/chevrolet             /brand/chevrolet-repair-service-center             301
+/brand/chrysler              /brand/chrysler-repair-service-center              301
+/brand/dodge                 /brand/dodge-repair-service-center                 301
+/brand/exeed                 /brand/exeed-repair-service-center                 301
+/brand/ford                  /brand/ford-repair-service-center                  301
+/brand/gac                   /brand/gac-repair-service-center                   301
+/brand/gmc                   /brand/gmc-repair-service-center                   301
+/brand/genesis               /brand/genesis-repair-service-center               301
+/brand/honda                 /brand/honda-repair-service-center                 301
+/brand/hyundai               /brand/hyundai-repair-service-center               301
+/brand/infiniti              /brand/infiniti-repair-service-center              301
+/brand/jeep                  /brand/jeep-repair-service-center                  301
+/brand/jetour                /brand/jetour-repair-service-center                301
+/brand/kia                   /brand/kia-repair-service-center                   301
+/brand/lexus                 /brand/lexus-repair-service-center                 301
+/brand/lincoln               /brand/lincoln-repair-service-center               301
+/brand/mazda                 /brand/mazda-repair-service-center                 301
+/brand/mitsubishi            /brand/mitsubishi-repair-service-center            301
+/brand/nissan                /brand/nissan-repair-service-center                301
+/brand/subaru                /brand/subaru-repair-service-center                301
+/brand/toyota                /brand/toyota-repair-service-center                301
+
+# Product URL redirects
+/packages/inspection         /products/car-inspection                           301
+/packages/insurance          /products/car-insurance                            301
+/packages/service-contract   /products/car-service-contract                     301
+/packages/spare-parts        /products/car-spare-parts                          301
+/packages/warranty-contract  /products/car-warranty-contract                    301
+
+# Service category redirects
+/services/bodyshop           /services/car-body-shop                            301
+/services/engineering        /services/car-engineering                          301
+/services/recovery           /services/car-recovery                             301
+/services/workshop           /services/car-workshop                             301
+
+# Service sub-page redirects (engineering)
+/services/engineering/*      /services/car-engineering/:splat                   301
+
+# Service sub-page redirects (bodyshop)
+/services/bodyshop/*         /services/car-body-shop/:splat                     301
+
+# Service sub-page redirects (workshop)
+/services/workshop/*         /services/car-workshop/:splat                      301

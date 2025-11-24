@@ -1,39 +1,63 @@
-# sv
+# Finews - AI-Powered Financial News Platform
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Finews is an AI-managed financial news application that delivers real-time market insights, news, and analytics for investors and financial professionals.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- 🤖 AI-powered news curation and analysis
+- 📊 Real-time financial market data
+- 📈 Advanced analytics and insights
+- 🔔 Personalized news alerts
+- 📱 Progressive Web App (PWA) support
 
-```sh
-# create a new project in the current directory
-npx sv create
+## Tech Stack
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **Framework:** SvelteKit
+- **Styling:** Tailwind CSS
+- **Package Manager:** Bun
+- **Deployment:** Netlify
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Prerequisites
 
-```sh
-npm run dev
+- Bun >= 1.0.0
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+### Installation
 
 ```sh
-npm run build
+bun install
 ```
 
-You can preview the production build with `npm run preview`.
+### Development
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-# finews
+```sh
+bun run dev
+```
+
+The app will open at `http://localhost:3000`
+
+### Building
+
+```sh
+bun run build
+```
+
+### Preview Production Build
+
+```sh
+bun run preview
+```
+
+## Scripts
+
+- `bun run dev` - Start development server
+- `bun run build` - Build for production
+- `bun run preview` - Preview production build
+- `bun run check` - Run type checking
+- `bun run lint` - Lint code
+- `bun run format` - Format code
+
+## License
+
+UNLICENSED
