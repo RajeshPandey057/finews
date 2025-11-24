@@ -5,13 +5,9 @@
 	import SectionCards from "$lib/components/section-cards.svelte";
 	import SiteHeader from "$lib/components/site-header.svelte";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-	import data from "$lib/data.js";
-	import SEO from '@/components/seo.svelte';
- </script>
-<SEO
-	title="Latest Financial News & AI Insights"
-	description="Stay updated with the latest financial news, market trends, and AI-powered analysis. Polygram delivers expert coverage on stocks, investments, and global finance."
-	image="/images/financial-news/ai-insights.webp" />
+	import data from "../../lib/data.js";
+</script>
+
 <Sidebar.Provider
 	style="--sidebar-width: calc(var(--spacing) * 72); --header-height: calc(var(--spacing) * 12);"
 >
