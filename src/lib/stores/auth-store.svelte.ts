@@ -1,9 +1,11 @@
 import { onMount } from "svelte";
+import type { Subscription } from "$lib/types/subscription";
 
 export interface User {
 	name: string;
 	email: string;
 	avatar: string;
+	subscription?: Subscription;
 }
 
 class AuthStore {

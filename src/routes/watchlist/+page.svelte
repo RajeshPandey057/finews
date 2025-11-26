@@ -7,6 +7,7 @@
 	import Bookmark from "~icons/lucide/bookmark";
 	import Trash2 from "~icons/lucide/trash-2";
 	import RadioSignal from "~icons/lucide/radio";
+	import TrendingUp from "~icons/lucide/trending-up";
 	import Settings from "~icons/lucide/settings";
 	import { Button } from "$lib/components/ui/button/index.js";
 	import WatchlistConfigPanel from "$lib/components/watchlist-config-panel.svelte";
@@ -246,6 +247,13 @@
 				>
 					<Bookmark class="size-4" />
 					<span>Watchlist</span>
+				</a>
+				<a
+					href="/trades"
+					class="flex w-full items-center gap-3 rounded-lg border border-transparent bg-transparent px-3 py-2 text-sm font-medium text-white/60 transition hover:border-white/10 hover:bg-white/5 hover:text-white/90"
+				>
+					<TrendingUp class="size-4" />
+					<span>Trades</span>
 				</a>
 			</nav>
 

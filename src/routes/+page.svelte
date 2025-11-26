@@ -13,6 +13,7 @@
 	import Send from "~icons/lucide/send-horizontal";
 	import Settings from "~icons/lucide/settings";
 	import Bookmark from "~icons/lucide/bookmark";
+	import TrendingUp from "~icons/lucide/trending-up";
 	import { page } from "$app/stores";
 	import ChevronUp from "~icons/lucide/chevron-up";
 	import ChevronDown from "~icons/lucide/chevron-down";
@@ -32,6 +33,12 @@
 			icon: Bookmark,
 			href: "/watchlist",
 			isActive: $page.url.pathname === "/watchlist",
+		},
+		{
+			label: "Trades",
+			icon: TrendingUp,
+			href: "/trades",
+			isActive: $page.url.pathname === "/trades",
 		},
 	];
 

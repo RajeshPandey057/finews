@@ -5,18 +5,26 @@
 	import LogoutIcon from "@tabler/icons-svelte/icons/logout";
 	import * as Avatar from "$lib/components/ui/avatar/index.js";
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
+	import { Badge } from "$lib/components/ui/badge/index.js";
 	import { authStore } from "$lib/stores/auth-store.svelte";
+	import { subscriptionStore } from "$lib/stores/subscription-store.svelte";
 
 	let { user }: { user?: { name: string; email: string; avatar: string } } = $props();
 	
 	// Use user from props if provided, otherwise get from store
 	const currentUser = $derived(user || authStore.user);
 	const isAuthenticated = $derived(currentUser !== null);
+	const subscription = $derived(subscriptionStore.subscription);
+	const isSubscribed = $derived(subscription?.status === "active");
 
 	function handleLogout() {
 		authStore.logout();
 		// Optionally redirect to login page
 		goto("/login");
+	}
+
+	function handleBilling() {
+		goto("/subscription");
 	}
 </script>
 
@@ -39,7 +47,17 @@
 						</Avatar.Fallback>
 					</Avatar.Root>
 					<div class="grid flex-1 text-start text-sm leading-tight">
-						<span class="truncate font-medium text-white">{currentUser.name}</span>
+						<div class="flex items-center gap-2">
+							<span class="truncate font-medium text-white">{currentUser.name}</span>
+							{#if isSubscribed}
+								<Badge
+									variant="default"
+									class="bg-green-500/20 text-green-400 border-green-500/30 text-[10px] px-1.5 py-0"
+								>
+									Pro
+								</Badge>
+							{/if}
+						</div>
 						<span class="truncate text-xs text-white/60">
 							{currentUser.email}
 						</span>
@@ -66,7 +84,17 @@
 							</Avatar.Fallback>
 						</Avatar.Root>
 						<div class="grid flex-1 text-start text-sm leading-tight">
-							<span class="truncate font-medium text-white">{currentUser.name}</span>
+							<div class="flex items-center gap-2">
+								<span class="truncate font-medium text-white">{currentUser.name}</span>
+								{#if isSubscribed}
+									<Badge
+										variant="default"
+										class="bg-green-500/20 text-green-400 border-green-500/30 text-[10px] px-1.5 py-0"
+									>
+										Pro
+									</Badge>
+								{/if}
+							</div>
 							<span class="truncate text-xs text-white/60">
 								{currentUser.email}
 							</span>
@@ -75,9 +103,17 @@
 				</DropdownMenu.Label>
 				<DropdownMenu.Separator />
 				<DropdownMenu.Group>
-					<DropdownMenu.Item class="text-white/80 hover:bg-white/10 hover:text-white">
+					<DropdownMenu.Item onclick={handleBilling} class="text-white/80 hover:bg-white/10 hover:text-white">
 						<CreditCardIcon class="text-white" />
 						Billing
+						{#if isSubscribed}
+							<Badge
+								variant="default"
+								class="ml-auto bg-green-500/20 text-green-400 border-green-500/30 text-[10px] px-1.5 py-0"
+							>
+								Pro
+							</Badge>
+						{/if}
 					</DropdownMenu.Item>
 				</DropdownMenu.Group>
 				<DropdownMenu.Separator />

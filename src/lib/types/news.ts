@@ -11,6 +11,10 @@ export interface NewsItem {
 	sector: string;
 	confidence: "High" | "Medium" | "Low";
 	date: string;
+	// Firebase fields
+	userId?: string; // For user-specific news
+	createdAt?: string; // ISO timestamp
+	updatedAt?: string; // ISO timestamp
 }
 
 export interface Citation {
@@ -46,6 +50,10 @@ export interface NewsDetail {
 	};
 	dominantPhrase: string;
 	citations: Citation[];
+	// Firebase fields
+	userId?: string; // For user-specific news
+	createdAt?: string; // ISO timestamp
+	updatedAt?: string; // ISO timestamp
 }
 
 export interface ChannelConfig {
@@ -82,5 +90,47 @@ export interface TrackerConfig {
 	channels: ChannelConfig[];
 	tableConfig: TableConfig;
 	updateFrequency: UpdateFrequency;
+}
+
+// Grok API response types
+export interface GrokNewsResponse {
+	items: GrokNewsItem[];
+	sources: string[];
+	timestamp: string;
+}
+
+export interface GrokNewsItem {
+	headline: string;
+	summary: string;
+	source: string;
+	stockSymbol?: string;
+	stockName?: string;
+	sentiment?: "positive" | "negative" | "neutral";
+	confidence?: "High" | "Medium" | "Low";
+	date?: string;
+	url?: string;
+}
+
+// Firebase document types
+export interface NewsItemDocument extends NewsItem {
+	createdAt: any; // Firestore Timestamp
+	updatedAt: any; // Firestore Timestamp
+}
+
+export interface NewsDetailDocument extends NewsDetail {
+	createdAt: any; // Firestore Timestamp
+	updatedAt: any; // Firestore Timestamp
+}
+
+export interface NewsFetchJob {
+	jobId: string;
+	userId: string;
+	source: string;
+	status: "pending" | "running" | "completed" | "failed";
+	lastRun?: string;
+	nextRun?: string;
+	errorLog?: string;
+	createdAt: any;
+	updatedAt: any;
 }
 

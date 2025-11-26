@@ -2,10 +2,14 @@ import { json } from "@sveltejs/kit";
 import type { RequestHandler } from "./$types";
 import { fetchNewsDetail } from "$lib/services/news-service";
 
-export const GET: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params, url, request }) => {
 	try {
 		const { id } = params;
-		const detail = await fetchNewsDetail(id);
+		
+		// Extract userId from query params or headers (temporary - should use proper auth)
+		const userId = url.searchParams.get("userId") || request.headers.get("x-user-id") || undefined;
+		
+		const detail = await fetchNewsDetail(id, userId || undefined);
 
 		if (!detail) {
 			return json({ success: false, error: "News item not found" }, { status: 404 });

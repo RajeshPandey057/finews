@@ -1,0 +1,40 @@
+[build]
+  command = "bun run build"
+  publish = ".svelte-kit"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Function configuration
+[functions]
+  # Increase timeout for scheduled functions (max 26s for free tier, 10s default)
+  scheduled-news-fetch.timeout = 26
+
+# Scheduled functions configuration
+# Note: Netlify scheduled functions are configured in the Netlify UI
+# or via netlify.toml using the following format:
+[[plugins]]
+  package = "@netlify/plugin-scheduled-functions"
+
+# Environment variables (set these in Netlify UI)
+# GROK_API_KEY
+# GROK_API_URL
+# FIREBASE_PROJECT_ID
+# FIREBASE_CLIENT_EMAIL
+# FIREBASE_PRIVATE_KEY
+
+# Redirects for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
